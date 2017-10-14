@@ -2,8 +2,8 @@ import {Component, OnInit} from "@angular/core";
 
 @Component({
   selector: 'star',
-  templateUrl: './star.component.html',
-  styleUrls: ['./star.component.css']
+  templateUrl: 'favorite.component.html',
+  styleUrls: ['favorite.component.css']
 })
 export class StarComponent implements OnInit {
 

@@ -4,7 +4,7 @@ import {CoursesComponent} from "./courses/courses.component";
 import {CoursesService} from "./courses/courses.service";
 import {FormsModule} from "@angular/forms";
 import {SummaryPipe} from "./summary.pipe";
-import {StarComponent} from "./star/star.component";
+import {StarComponent} from "./favorite/favorite.component";
 import {TitleCasePipe} from "./title-case.pipe";
 
 describe('AppComponent', () => {
