@@ -2,3 +2,55 @@
 <ul>
   <li *ngFor="let course of courses"> {{ course }}</li>
 </ul>
+
+<img [src]="imageUrl" />
+
+<table>
+  <tr>
+    <td [attr.colspan]="colSpan"></td>
+  </tr>
+</table>
+
+<div (click)="onDivClicked()">
+  <button (click)="onSave($event)" class="btn btn-primary" [class.active]="isActive">Save</button>
+</div>
+<button [style.backgroundColor]="isActive ? 'blue' : 'white'">Save2</button>
+
+<div class="container panel">
+  <div class="row">
+    <div class="col-sm-12">
+      <input [value]="email" (keyup.enter)="email = $event.target.value; onKeyUp()" />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <input [(ngModel)]="email" (keyup.enter)="onKeyUp()" />
+    </div>
+  </div>
+</div>
+
+<div class="container panel">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-sm-12">{{ course.title | uppercase | lowercase }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">{{ course.students | number }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">{{ course.rating | number:'1.2-2' }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">{{ course.price | currency:'PLN':true:'3.2-2' }}</div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">{{ course.releaseDate | date:'shortDate' }}</div>
+    </div>
+  </div>
+</div>
+
+<div class="container panel">
+  <div class="panel-body">
+    {{ imageUrl | summary: 10 }}
+  </div>
+</div>
