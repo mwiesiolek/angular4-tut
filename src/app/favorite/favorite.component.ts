@@ -1,13 +1,13 @@
-import {Component, OnInit} from "@angular/core";
+import {Component, OnInit, Input} from "@angular/core";
 
 @Component({
   selector: 'star',
   templateUrl: 'favorite.component.html',
   styleUrls: ['favorite.component.css']
 })
-export class StarComponent implements OnInit {
+export class FavoriteComponent implements OnInit {
 
-  private _isActive: boolean = false;
+  private _isFavorite: boolean = false;
 
   constructor() {
   }
@@ -16,18 +16,18 @@ export class StarComponent implements OnInit {
   }
 
   toggleStar(): void {
-    this.isActive = !this.isActive;
+    this.isFavorite = !this.isFavorite;
   }
 
-  set isActive(active: boolean) {
-    this._isActive = active;
+  set isFavorite(active: boolean) {
+    this._isFavorite = active;
   }
 
-  get isActive(): boolean {
-    return this._isActive;
+  get isFavorite(): boolean {
+    return this._isFavorite;
   }
 
-  get isInactive(): boolean {
-    return !this._isActive;
+  get isNotFavorite(): boolean {
+    return !this._isFavorite;
   }
 }
