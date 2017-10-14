@@ -1,19 +1,26 @@
-import { TestBed, async } from '@angular/core/testing';
-
-import { AppComponent } from './app.component';
+import {TestBed, async} from "@angular/core/testing";
+import {AppComponent} from "./app.component";
 import {CoursesComponent} from "./courses/courses.component";
 import {CoursesService} from "./courses/courses.service";
+import {FormsModule} from "@angular/forms";
+import {SummaryPipe} from "./summary.pipe";
+import {StarComponent} from "./star/star.component";
+import {TitleCasePipe} from "./title-case.pipe";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
-        CoursesComponent
+        CoursesComponent,
+        SummaryPipe,
+        StarComponent,
+        TitleCasePipe
       ],
       providers: [
         CoursesService
-      ]
+      ],
+      imports: [FormsModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

@@ -15,6 +15,7 @@ export class CoursesComponent implements OnInit {
   colSpan = 2;
   isActive = true;
   email: string = 'me@example.com';
+  movieTitle = 'tHe RISE of the PLAnet of THE apes';
 
   private course: Course = new Course(
     'The complete angular course',
