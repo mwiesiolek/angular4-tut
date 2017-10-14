@@ -1,7 +1,7 @@
 import {Component, OnInit, Input} from "@angular/core";
 
 @Component({
-  selector: 'star',
+  selector: 'favorite',
   templateUrl: 'favorite.component.html',
   styleUrls: ['favorite.component.css']
 })
@@ -19,6 +19,7 @@ export class FavoriteComponent implements OnInit {
     this.isFavorite = !this.isFavorite;
   }
 
+  @Input('is-favorite')
   set isFavorite(active: boolean) {
     this._isFavorite = active;
   }

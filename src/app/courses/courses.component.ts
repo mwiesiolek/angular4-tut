@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {CoursesService} from "./courses.service";
 import {Course} from "./course";
+import {Favorite} from "../favorite/favorite";
 
 @Component({
   selector: 'courses',
@@ -16,6 +17,11 @@ export class CoursesComponent implements OnInit {
   isActive = true;
   email: string = 'me@example.com';
   movieTitle = 'tHe RISE of the PLAnet of THE apes';
+
+  private favorite: Favorite = new Favorite(
+    'Some topic to be liked',
+    true
+  );
 
   private course: Course = new Course(
     'The complete angular course',

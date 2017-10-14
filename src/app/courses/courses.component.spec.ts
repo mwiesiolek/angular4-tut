@@ -1,6 +1,5 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {CoursesComponent} from './courses.component';
+import {async, ComponentFixture, TestBed} from "@angular/core/testing";
+import {CoursesComponent} from "./courses.component";
 import {CoursesService} from "./courses.service";
 import {FormsModule} from "@angular/forms";
 import {SummaryPipe} from "../summary.pipe";
@@ -16,8 +15,7 @@ describe('CourseComponent', () => {
       declarations: [CoursesComponent, SummaryPipe, FavoriteComponent, TitleCasePipe],
       providers: [CoursesService],
       imports: [FormsModule]
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {
