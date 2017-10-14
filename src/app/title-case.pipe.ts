@@ -22,7 +22,7 @@ export class TitleCasePipe implements PipeTransform {
     return result;
   }
 
-  toSentenceCase(value: String): String {
+  private toSentenceCase(value: String): String {
     return value.charAt(0).toUpperCase() + value.substring(1, value.length);
   }
 
