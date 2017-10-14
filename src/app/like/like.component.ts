@@ -12,7 +12,7 @@ export class LikeComponent {
   private _isLiked: boolean = false;
   private _count: number = 0;
 
-  @Output() change = new EventEmitter();
+  @Output('change') change = new EventEmitter();
 
   onLikeClick(): void {
     this.isLiked = !this.isLiked;
@@ -35,7 +35,7 @@ export class LikeComponent {
     return !this.isLiked;
   }
 
-  @Input()
+  @Input('count')
   get count(): number {
     return this._count;
   }

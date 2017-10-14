@@ -9,3 +9,7 @@ p {
 .pink {
   color: deeppink;
 }
+
+span:hover {
+  cursor: pointer;
+}
