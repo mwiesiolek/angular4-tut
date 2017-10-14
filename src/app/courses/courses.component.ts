@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {CoursesService} from "./courses.service";
 import {Course} from "./course";
 import {Favorite} from "../favorite/favorite";
+import {FavoriteChangedEventArgs} from "../favorite/favorite.component";
 
 @Component({
   selector: 'courses',
@@ -51,6 +52,10 @@ export class CoursesComponent implements OnInit {
     console.log('ENTER was pressed');
 
     console.log(this.email);
+  }
+
+  onFavoriteChanged(args: FavoriteChangedEventArgs): void {
+    console.log('favorite changed: ', args);
   }
 
   get courses(): String[] {

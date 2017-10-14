@@ -57,7 +57,7 @@
 
 <div class="container panel">
   <div class="panel-body">
-    <favorite [is-favorite]="favorite.isFavorite"></favorite>
+    <favorite [is-favorite]="favorite.isFavorite" (change)="onFavoriteChanged($event)"></favorite>
   </div>
 </div>
 
