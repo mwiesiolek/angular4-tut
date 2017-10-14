@@ -67,3 +67,12 @@
     <p>{{movieTitle | titleCase }}</p>
   </div>
 </div>
+
+<bootstrap-panel>
+  <ng-container class="heading">Like component</ng-container>
+  <div class="body">
+    <like [is-liked]="like.isLiked"
+          [count]="like.likesCount"
+          (change)="onLikeChange($event)"></like>
+  </div>
+</bootstrap-panel>

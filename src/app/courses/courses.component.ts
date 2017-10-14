@@ -3,6 +3,8 @@ import {CoursesService} from "./courses.service";
 import {Course} from "./course";
 import {Favorite} from "../favorite/favorite";
 import {FavoriteChangedEventArgs} from "../favorite/favorite.component";
+import {Like} from "../like/like";
+import {LikeChangedEventArgs} from "../like/like.component";
 
 @Component({
   selector: 'courses',
@@ -32,6 +34,12 @@ export class CoursesComponent implements OnInit {
     new Date(2016, 3, 1)
   );
 
+  private like: Like = new Like(
+    'Here comes body of a tweet',
+    false,
+    0
+  );
+
   constructor(private coursesService: CoursesService) {
   }
 
@@ -56,6 +64,10 @@ export class CoursesComponent implements OnInit {
 
   onFavoriteChanged(args: FavoriteChangedEventArgs): void {
     console.log('favorite changed: ', args);
+  }
+
+  onLikeChange(args: LikeChangedEventArgs): void {
+    console.log('like changed: ', args);
   }
 
   get courses(): String[] {
