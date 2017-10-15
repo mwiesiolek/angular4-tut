@@ -45,11 +45,12 @@
   </div>
 </div>
 
+<button (click)="loadCourses()">Load courses</button>
 <button (click)="onAdd()">Add</button>
 <div class="row">
   <div class="col-sm-12">
     <ul>
-      <li *ngFor="let course of courses; index as i; even as isEven">
+      <li *ngFor="let course of courses; index as i; even as isEven; trackBy: trackCourse">
         {{i}} - {{course.name}} <span *ngIf="isEven">(EVEN)</span>
         <button (click)="onRemove(course)">Remove</button>
         <button (click)="onUpdate(course)">Change</button>
