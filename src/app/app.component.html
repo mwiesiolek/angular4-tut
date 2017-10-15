@@ -7,3 +7,26 @@
     <p>Some content here...</p>
   </div>
 </bootstrap-panel>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div *ngIf="coursesAreAvailable(); then coursesList else noCourses"></div>
+    <ng-template #coursesList>
+      List of courses
+    </ng-template>
+    <ng-template #noCourses>
+      No courses yet
+    </ng-template>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div [hidden]="courses.length == 0">
+      <h2>List of courses</h2>
+    </div>
+    <div [hidden]="courses.length > 0">
+      <h2>No courses yet</h2>
+    </div>
+  </div>
+</div>
