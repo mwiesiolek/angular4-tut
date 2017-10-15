@@ -45,11 +45,14 @@
   </div>
 </div>
 
+<button (click)="onAdd()">Add</button>
 <div class="row">
   <div class="col-sm-12">
     <ul>
       <li *ngFor="let course of courses; index as i; even as isEven">
         {{i}} - {{course.name}} <span *ngIf="isEven">(EVEN)</span>
+        <button (click)="onRemove(course)">Remove</button>
+        <button (click)="onUpdate(course)">Change</button>
       </li>
     </ul>
   </div>
