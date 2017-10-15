@@ -5,6 +5,8 @@ import {FormsModule} from "@angular/forms";
 import {SummaryPipe} from "../summary.pipe";
 import {FavoriteComponent} from "../favorite/favorite.component";
 import {TitleCasePipe} from "../title-case.pipe";
+import {LikeComponent} from "../like/like.component";
+import {PanelComponent} from "../panel/panel.component";
 
 describe('CourseComponent', () => {
   let component: CoursesComponent;
@@ -12,7 +14,13 @@ describe('CourseComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CoursesComponent, SummaryPipe, FavoriteComponent, TitleCasePipe],
+      declarations: [CoursesComponent,
+        SummaryPipe,
+        FavoriteComponent,
+        TitleCasePipe,
+        LikeComponent,
+        PanelComponent
+      ],
       providers: [CoursesService],
       imports: [FormsModule]
     }).compileComponents();
