@@ -9,6 +9,7 @@ import {TitleCasePipe} from "./title-case.pipe";
 import {PanelComponent} from "./panel/panel.component";
 import {LikeComponent} from "./like/like.component";
 import {InputFormatDirective} from "./input-format.directive";
+import {ZippyComponent} from "./zippy/zippy.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -21,7 +22,8 @@ describe('AppComponent', () => {
         TitleCasePipe,
         PanelComponent,
         LikeComponent,
-        InputFormatDirective
+        InputFormatDirective,
+        ZippyComponent
       ],
       providers: [
         CoursesService
