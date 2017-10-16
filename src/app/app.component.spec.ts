@@ -8,6 +8,7 @@ import {FavoriteComponent} from "./favorite/favorite.component";
 import {TitleCasePipe} from "./title-case.pipe";
 import {PanelComponent} from "./panel/panel.component";
 import {LikeComponent} from "./like/like.component";
+import {InputFormatDirective} from "./input-format.directive";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -19,7 +20,8 @@ describe('AppComponent', () => {
         FavoriteComponent,
         TitleCasePipe,
         PanelComponent,
-        LikeComponent
+        LikeComponent,
+        InputFormatDirective
       ],
       providers: [
         CoursesService
