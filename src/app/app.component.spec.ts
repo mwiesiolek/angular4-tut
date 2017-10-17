@@ -14,6 +14,7 @@ import {ContactFormComponent} from "./contact-form/contact-form.component";
 import {CourseFormComponent} from "./course-form/course-form.component";
 import {SignupFormComponent} from "./signup-form/signup-form.component";
 import {ResetPasswordFormComponent} from "./reset-password-form/reset-password-form.component";
+import {PostComponent} from "./post/post.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -31,7 +32,8 @@ describe('AppComponent', () => {
         ContactFormComponent,
         CourseFormComponent,
         SignupFormComponent,
-        ResetPasswordFormComponent
+        ResetPasswordFormComponent,
+        PostComponent
       ],
       providers: [
         CoursesService
