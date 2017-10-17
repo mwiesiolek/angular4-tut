@@ -21,6 +21,12 @@ export class SignupFormComponent {
 
   constructor() { }
 
+  login(): void {
+    this.form.setErrors({
+      invalidLogin: true
+    });
+  }
+
   get username() {
     return this.form.get('username');
   }
