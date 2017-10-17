@@ -15,6 +15,8 @@ export class ResetPasswordFormComponent {
       oldPassword: ['', Validators.required, ResetPasswordValidators.oldPasswordShouldBeCorrect],
       newPassword: ['', Validators.required],
       confirmPassword: ['', Validators.required]
+    }, {
+      validator: ResetPasswordValidators.passwordsShouldMatch
     });
   }
 
