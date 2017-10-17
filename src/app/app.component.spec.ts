@@ -2,7 +2,7 @@ import {TestBed, async} from "@angular/core/testing";
 import {AppComponent} from "./app.component";
 import {CoursesComponent} from "./courses/courses.component";
 import {CoursesService} from "./courses/courses.service";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {SummaryPipe} from "./summary.pipe";
 import {FavoriteComponent} from "./favorite/favorite.component";
 import {TitleCasePipe} from "./title-case.pipe";
@@ -12,6 +12,7 @@ import {InputFormatDirective} from "./input-format.directive";
 import {ZippyComponent} from "./zippy/zippy.component";
 import {ContactFormComponent} from "./contact-form/contact-form.component";
 import {CourseFormComponent} from "./course-form/course-form.component";
+import {SignupFormComponent} from "./signup-form/signup-form.component";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -27,12 +28,13 @@ describe('AppComponent', () => {
         InputFormatDirective,
         ZippyComponent,
         ContactFormComponent,
-        CourseFormComponent
+        CourseFormComponent,
+        SignupFormComponent
       ],
       providers: [
         CoursesService
       ],
-      imports: [FormsModule]
+      imports: [FormsModule, ReactiveFormsModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
