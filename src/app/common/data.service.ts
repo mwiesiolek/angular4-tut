@@ -13,24 +13,28 @@ export class DataService {
   getAll() {
     return this.http.get(this.url)
       .map(response => response.json())
+      .retry(3)
       .catch(DataService.handleError);
   }
 
   create(resource) {
     return this.http.post(this.url, JSON.stringify(resource))
       .map(response => response.json())
+      .retry(3)
       .catch(DataService.handleError);
   }
 
   update(resource): Observable<Response> {
     return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
       .map(response => response.json())
+      .retry(3)
       .catch(DataService.handleError);
   }
 
   deleteResource(id: number): Observable<Response> {
-    return this.http.delete(this.url + '/' + id)
+    return this.http.delete(this.url + '/123' + id)
       .map(response => response.json())
+      .retry(3)
       .catch(DataService.handleError);
   }
 
