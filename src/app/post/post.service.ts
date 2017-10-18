@@ -1,7 +1,6 @@
 import {Injectable} from "@angular/core";
 import {Http, Response} from "@angular/http";
 import {Observable} from "rxjs";
-import 'rxjs/add/operator/catch';
 import {PostError} from "./post-error";
 import {PostNotFoundError} from "./post-not-found-error";
 import {PostBadRequestError} from "./post-bad-request-error";
