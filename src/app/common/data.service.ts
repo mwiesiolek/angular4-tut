@@ -13,28 +13,28 @@ export class DataService {
   getAll() {
     return this.http.get(this.url)
       .map(response => response.json())
-      .catch(this.handleError);
+      .catch(DataService.handleError);
   }
 
   create(resource) {
     return this.http.post(this.url, JSON.stringify(resource))
       .map(response => response.json())
-      .catch(this.handleError);
+      .catch(DataService.handleError);
   }
 
   update(resource): Observable<Response> {
     return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
       .map(response => response.json())
-      .catch(this.handleError);
+      .catch(DataService.handleError);
   }
 
-  delete(id: number): Observable<Response> {
+  deleteResource(id: number): Observable<Response> {
     return this.http.delete(this.url + '/' + id)
       .map(response => response.json())
-      .catch(this.handleError);
+      .catch(DataService.handleError);
   }
 
-  private handleError(error: Response) {
+  private static handleError(error: Response) {
     if (error.status === 400) {
       return Observable.throw(new BadRequestError(error.json()));
     } else if (error.status === 404) {

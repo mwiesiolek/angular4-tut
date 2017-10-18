@@ -13,7 +13,8 @@ import {BadRequestError} from "../common/bad-request-error";
 export class PostComponent implements OnInit {
   posts: any[];
 
-  constructor(private postService: PostService) {}
+  constructor(private postService: PostService) {
+  }
 
   ngOnInit(): void {
     this.postService.getAll()
@@ -22,15 +23,18 @@ export class PostComponent implements OnInit {
 
   createPost(input: HTMLInputElement): void {
     let post = {title: input.value};
+    this.posts.splice(0, 0, post);
+
     input.value = '';
 
     this.postService.create(post)
       .subscribe(
         newPost => {
           post['id'] = newPost.id;
-          this.posts.splice(0, 0, post);
         },
         (error: AppError) => {
+          this.posts.splice(0, 1);
+
           this.handleError(error);
         });
   }
@@ -44,13 +48,14 @@ export class PostComponent implements OnInit {
   }
 
   deletePost(post) {
-    this.postService.delete(post.id)
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+
+    this.postService.deleteResource(post.id)
       .subscribe(
-        () => {
-          let index = this.posts.indexOf(post);
-          this.posts.splice(index, 1);
-        },
+        null,
         (error: AppError) => {
+          this.posts.splice(index, 0, post);
           this.handleError(error);
         });
   }
