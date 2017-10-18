@@ -21,10 +21,6 @@ export class PostComponent implements OnInit {
       .subscribe(
         (response: Response) => {
           this.posts = response.json();
-        },
-        (error: Response) => {
-          console.log(error);
-          alert('Some shit happened.');
         });
   }
 
@@ -39,13 +35,13 @@ export class PostComponent implements OnInit {
           this.posts.splice(0, 0, post);
         },
         (error: PostError) => {
-          console.log(error);
-
           if(error instanceof PostBadRequestError) {
+            console.log(error);
             alert('Bad request.');
           } else {
-            alert('Some shit happened.');
+            throw error;
           }
+
         });
   }
 
@@ -54,11 +50,6 @@ export class PostComponent implements OnInit {
       .subscribe(
         (response: Response) => {
           console.log(response);
-        },
-        (error: Response) => {
-          console.log(error);
-
-          alert('Some shit happened.');
         });
   }
 
@@ -70,12 +61,12 @@ export class PostComponent implements OnInit {
           this.posts.splice(index, 1);
         },
         (error: PostError) => {
-          console.log(error);
 
           if(error instanceof PostNotFoundError) {
+            console.log(error);
             alert('This post has already been deleted.');
           } else {
-            alert('Some weird shit happened.');
+            throw error;
           }
         });
   }

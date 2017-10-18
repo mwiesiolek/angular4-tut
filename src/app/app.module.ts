@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, ErrorHandler} from '@angular/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -21,6 +21,7 @@ import { ResetPasswordFormComponent } from './reset-password-form/reset-password
 import {HttpModule} from "@angular/http";
 import { PostComponent } from './post/post.component';
 import {PostService} from "./post/post.service";
+import {AppErrorHandler} from "./common/app-error-handler";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,10 @@ import {PostService} from "./post/post.service";
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [CoursesService, PostService],
+  providers: [
+    CoursesService,
+    PostService,
+    {provide: ErrorHandler, useClass: AppErrorHandler}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
