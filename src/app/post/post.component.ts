@@ -1,9 +1,9 @@
 import {Component, OnInit} from "@angular/core";
 import {Response} from "@angular/http";
 import {PostService} from "./post.service";
-import {PostError} from "./post-error";
-import {PostNotFoundError} from "./post-not-found-error";
-import {PostBadRequestError} from "./post-bad-request-error";
+import {AppError} from "../common/app-error";
+import {NotFoundError} from "../common/not-found-error";
+import {BadRequestError} from "../common/bad-request-error";
 
 @Component({
   selector: 'post',
@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.postService.getPosts()
+    this.postService.getAll()
       .subscribe(
         (response: Response) => {
           this.posts = response.json();
@@ -28,19 +28,19 @@ export class PostComponent implements OnInit {
     let post = {title: input.value};
     input.value = '';
 
-    this.postService.createPost(post)
+    this.postService.create(post)
       .subscribe(
         (response: Response) => {
           post['id'] = response.json().id;
           this.posts.splice(0, 0, post);
         },
-        (error: PostError) => {
+        (error: AppError) => {
           this.handleError(error);
         });
   }
 
   updatePost(post) {
-    this.postService.updatePost(post)
+    this.postService.update(post)
       .subscribe(
         (response: Response) => {
           console.log(response);
@@ -48,22 +48,22 @@ export class PostComponent implements OnInit {
   }
 
   deletePost(post) {
-    this.postService.deletePost(post.id)
+    this.postService.delete(post.id)
       .subscribe(
         (response: Response) => {
           let index = this.posts.indexOf(post);
           this.posts.splice(index, 1);
         },
-        (error: PostError) => {
+        (error: AppError) => {
           this.handleError(error);
         });
   }
 
-  private handleError(error: PostError) {
-    if (error instanceof PostNotFoundError) {
+  private handleError(error: AppError) {
+    if (error instanceof NotFoundError) {
       console.log(error);
       alert('This post has already been deleted.');
-    } else if (error instanceof PostBadRequestError) {
+    } else if (error instanceof BadRequestError) {
       console.log(error);
 
       // this.form.setErrors(error.originalError);

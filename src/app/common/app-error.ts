@@ -1,4 +1,4 @@
-export class PostError {
+export class AppError {
   constructor(private _originalError?: any) {}
 
   get originalError(): any {
