@@ -35,13 +35,7 @@ export class PostComponent implements OnInit {
           this.posts.splice(0, 0, post);
         },
         (error: PostError) => {
-          if(error instanceof PostBadRequestError) {
-            console.log(error);
-            alert('Bad request.');
-          } else {
-            throw error;
-          }
-
+          this.handleError(error);
         });
   }
 
@@ -61,13 +55,21 @@ export class PostComponent implements OnInit {
           this.posts.splice(index, 1);
         },
         (error: PostError) => {
-
-          if(error instanceof PostNotFoundError) {
-            console.log(error);
-            alert('This post has already been deleted.');
-          } else {
-            throw error;
-          }
+          this.handleError(error);
         });
+  }
+
+  private handleError(error: PostError) {
+    if (error instanceof PostNotFoundError) {
+      console.log(error);
+      alert('This post has already been deleted.');
+    } else if (error instanceof PostBadRequestError) {
+      console.log(error);
+
+      // this.form.setErrors(error.originalError);
+      alert('Bad request.');
+    } else {
+      throw error;
+    }
   }
 }

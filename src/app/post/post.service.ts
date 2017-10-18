@@ -13,30 +13,31 @@ export class PostService {
   }
 
   getPosts(): Observable<Response> {
-    return this.http.get(this.url);
+    return this.http.get(this.url)
+      .catch(this.handleError);
   }
 
   createPost(post): Observable<Response> {
-    return this.http.post(this.url, JSON.stringify(post)).catch((error: Response) => {
-      if(error.status === 400) {
-        // this.form.setErrors(error.originalError);
-        return Observable.throw(new PostBadRequestError(error.json()));
-      }
-
-      return Observable.throw(new PostError(error.json()));
-    });
+    return this.http.post(this.url, JSON.stringify(post))
+      .catch(this.handleError);
   }
 
   updatePost(post): Observable<Response> {
-    return this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}));
+    return this.http.patch(this.url + '/' + post.id, JSON.stringify({isRead: true}))
+      .catch(this.handleError);
   }
 
   deletePost(id: number): Observable<Response> {
-    return this.http.delete(this.url + '/' + id).catch((error: Response) => {
-      if(error.status === 404) {
-        return Observable.throw(new PostNotFoundError(error.json()));
-      }
+    return this.http.delete(this.url + '/' + id).catch(this.handleError);
+  }
+
+  private handleError(error: Response) {
+    if (error.status === 400) {
+      return Observable.throw(new PostBadRequestError(error.json()));
+    } else if (error.status === 404) {
+      return Observable.throw(new PostNotFoundError(error.json()));
+    } else {
       return Observable.throw(new PostError(error.json()));
-    });
+    }
   }
 }
