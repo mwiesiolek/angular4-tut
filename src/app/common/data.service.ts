@@ -10,23 +10,28 @@ export class DataService {
   constructor(private url: string, protected http: Http) {
   }
 
-  getAll(): Observable<Response> {
+  getAll() {
     return this.http.get(this.url)
+      .map(response => response.json())
       .catch(this.handleError);
   }
 
-  create(resource): Observable<Response> {
+  create(resource) {
     return this.http.post(this.url, JSON.stringify(resource))
+      .map(response => response.json())
       .catch(this.handleError);
   }
 
   update(resource): Observable<Response> {
     return this.http.patch(this.url + '/' + resource.id, JSON.stringify({isRead: true}))
+      .map(response => response.json())
       .catch(this.handleError);
   }
 
   delete(id: number): Observable<Response> {
-    return this.http.delete(this.url + '/' + id).catch(this.handleError);
+    return this.http.delete(this.url + '/' + id)
+      .map(response => response.json())
+      .catch(this.handleError);
   }
 
   private handleError(error: Response) {
