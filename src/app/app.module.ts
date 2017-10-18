@@ -20,6 +20,7 @@ import { NewCourseFormComponent } from './new-course-form/new-course-form.compon
 import { ResetPasswordFormComponent } from './reset-password-form/reset-password-form.component';
 import {HttpModule} from "@angular/http";
 import { PostComponent } from './post/post.component';
+import {PostService} from "./post/post.service";
 
 @NgModule({
   declarations: [
@@ -45,7 +46,7 @@ import { PostComponent } from './post/post.component';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [CoursesService],
+  providers: [CoursesService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
