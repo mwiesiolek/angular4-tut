@@ -28,6 +28,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import {RouterModule} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
+import { GitFollowerProfileComponent } from './git-follower-profile/git-follower-profile.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { HomeComponent } from './home/home.component';
     GitFollowerComponent,
     NavbarComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    GitFollowerProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,7 @@ import { HomeComponent } from './home/home.component';
       },
       {
         path: 'followers/:username',
-        component: GitFollowerComponent
+        component: GitFollowerProfileComponent
       },
       {
         path: 'followers',

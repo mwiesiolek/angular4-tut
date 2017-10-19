@@ -20,6 +20,7 @@ import {NewCourseFormComponent} from "../new-course-form/new-course-form.compone
 import {GitFollowerComponent} from "../git-follower/git-follower.component";
 import {GitFollowerService} from "../git-follower/git-follower.service";
 import {HttpModule} from "@angular/http";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -52,7 +53,8 @@ describe('HomeComponent', () => {
       imports: [
         FormsModule,
         ReactiveFormsModule,
-        HttpModule
+        HttpModule,
+        RouterTestingModule
       ]
     }).compileComponents();
   }));
