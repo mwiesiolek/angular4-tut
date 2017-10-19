@@ -19,14 +19,16 @@ export class GitFollowerComponent implements OnInit {
   ngOnInit(): void {
     Observable.combineLatest([
       this.route.paramMap,
-      this.route.queryParamMap,
-    ]).subscribe(combined => {
+      this.route.queryParamMap
+    ])
+    .switchMap(combined => {
       let id = +combined[0].get('id');
       let page = +combined[1].get('page');
       let order = combined[1].get('order');
 
       // this.service.getAll({id: id, page: page})
-      this.service.getAll().subscribe(result => this.followers = result);
-    });
+      return this.service.getAll();
+    })
+    .subscribe(followers => this.followers = followers);
   }
 }
