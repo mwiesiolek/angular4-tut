@@ -1,27 +1,16 @@
 import {TestBed, async} from "@angular/core/testing";
 import {AppComponent} from "./app.component";
-import {CoursesComponent} from "./courses/courses.component";
-import {CoursesService} from "./courses/courses.service";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {SummaryPipe} from "./summary.pipe";
-import {FavoriteComponent} from "./favorite/favorite.component";
-import {TitleCasePipe} from "./title-case.pipe";
-import {PanelComponent} from "./panel/panel.component";
-import {LikeComponent} from "./like/like.component";
-import {InputFormatDirective} from "./input-format.directive";
-import {ZippyComponent} from "./zippy/zippy.component";
-import {ContactFormComponent} from "./contact-form/contact-form.component";
-import {CourseFormComponent} from "./course-form/course-form.component";
-import {SignupFormComponent} from "./signup-form/signup-form.component";
-import {ResetPasswordFormComponent} from "./reset-password-form/reset-password-form.component";
-import {PostComponent} from "./post/post.component";
+import {NavbarComponent} from "./navbar/navbar.component";
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
-      ]
+        AppComponent,
+        NavbarComponent
+      ],
+      imports: [RouterTestingModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
