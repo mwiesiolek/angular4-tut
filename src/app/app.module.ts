@@ -64,7 +64,11 @@ import { GitFollowerProfileComponent } from './git-follower-profile/git-follower
         component: HomeComponent
       },
       {
-        path: 'followers/:username',
+        path: 'everything',
+        component: HomeComponent
+      },
+      {
+        path: 'followers/:id',
         component: GitFollowerProfileComponent
       },
       {
