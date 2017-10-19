@@ -20,25 +20,8 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent,
-        CoursesComponent,
-        SummaryPipe,
-        FavoriteComponent,
-        TitleCasePipe,
-        PanelComponent,
-        LikeComponent,
-        InputFormatDirective,
-        ZippyComponent,
-        ContactFormComponent,
-        CourseFormComponent,
-        SignupFormComponent,
-        ResetPasswordFormComponent,
-        PostComponent
-      ],
-      providers: [
-        CoursesService
-      ],
-      imports: [FormsModule, ReactiveFormsModule]
+        AppComponent
+      ]
     }).compileComponents();
   }));
   it('should create the app', async(() => {

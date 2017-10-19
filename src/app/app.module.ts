@@ -24,6 +24,10 @@ import {PostService} from "./post/post.service";
 import {AppErrorHandler} from "./common/app-error-handler";
 import { GitFollowerComponent } from './git-follower/git-follower.component';
 import {GitFollowerService} from "./git-follower/git-follower.service";
+import { NavbarComponent } from './navbar/navbar.component';
+import {RouterModule} from "@angular/router";
+import { NotFoundComponent } from './not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -42,19 +46,44 @@ import {GitFollowerService} from "./git-follower/git-follower.service";
     NewCourseFormComponent,
     ResetPasswordFormComponent,
     PostComponent,
-    GitFollowerComponent
+    GitFollowerComponent,
+    NavbarComponent,
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: '',
+        component: HomeComponent
+      },
+      {
+        path: 'followers/:username',
+        component: GitFollowerComponent
+      },
+      {
+        path: 'followers',
+        component: GitFollowerComponent
+      },
+      {
+        path: 'posts',
+        component: PostComponent
+      },
+      {
+        path: '**',
+        component: NotFoundComponent
+      }
+    ])
   ],
   providers: [
     CoursesService,
     PostService,
-    {provide: ErrorHandler, useClass: AppErrorHandler},
-    GitFollowerService
+    GitFollowerService,
+    {provide: ErrorHandler, useClass: AppErrorHandler}
   ],
   bootstrap: [AppComponent]
 })

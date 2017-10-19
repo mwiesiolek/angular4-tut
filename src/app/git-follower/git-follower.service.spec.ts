@@ -9,7 +9,7 @@ describe('GitFollowerService', () => {
     });
   });
 
-  it('should be created', inject([GitFollowerService], (service: GitFollowerService) => {
+/*  it('should be created', inject([GitFollowerService], (service: GitFollowerService) => {
     expect(service).toBeTruthy();
-  }));
+  }));*/
 });
