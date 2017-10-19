@@ -6,7 +6,7 @@
           <a routerLink="/everything">Everything</a>
         </li>
         <li routerLinkActive="active">
-          <a routerLink="/followers">Followers</a>
+          <a routerLink="/followers" [queryParams]="{page: 1, order: 'newest'}">Followers</a>
         </li>
         <li routerLinkActive="active">
           <a routerLink="/posts">Posts</a>
