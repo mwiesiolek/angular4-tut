@@ -6,7 +6,7 @@
       </div>
       <div class="col-sm-11">
         <h3>
-          <a [routerLink]="['/followers', follower.id]">{{ follower.login }}</a>
+          <a [routerLink]="['/followers', follower.id, follower.login]">{{ follower.login }}</a>
         </h3>
         <a href="{{ follower.html_url }}">{{ follower.html_url }}</a>
       </div>

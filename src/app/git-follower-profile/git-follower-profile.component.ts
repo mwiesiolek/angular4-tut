@@ -10,12 +10,16 @@ export class GitFollowerProfileComponent implements OnInit {
   constructor(private router: ActivatedRoute) { }
 
   ngOnInit(): void {
+    // let id = this.router.snapshot.paramMap.get('id');
+
     this.router.paramMap
       .subscribe(params => {
         console.log(params);
 
         let id = +params.get('id');
-        console.log(id);
+        let username = params.get('username');
+
+        console.log(id + ': ' + username);
       });
   }
 }
