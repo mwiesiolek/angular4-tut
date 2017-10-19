@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GitFollowerProfileComponent } from './git-follower-profile.component';
+import {RouterTestingModule} from "@angular/router/testing";
 
 describe('GitFollowerProfileComponent', () => {
   let component: GitFollowerProfileComponent;
@@ -8,9 +9,9 @@ describe('GitFollowerProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GitFollowerProfileComponent ]
-    })
-    .compileComponents();
+      declarations: [ GitFollowerProfileComponent ],
+      imports: [RouterTestingModule]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

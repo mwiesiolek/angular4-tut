@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-git-follower-profile',
@@ -7,12 +7,12 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./git-follower-profile.component.css']
 })
 export class GitFollowerProfileComponent implements OnInit {
-  constructor(private router: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     // let id = this.router.snapshot.paramMap.get('id');
 
-    this.router.paramMap
+    this.route.paramMap
       .subscribe(params => {
         console.log(params);
 
@@ -21,5 +21,11 @@ export class GitFollowerProfileComponent implements OnInit {
 
         console.log(id + ': ' + username);
       });
+  }
+
+  submit() {
+    this.router.navigate(['/followers'], {
+      queryParams: {page: 1, order: 'newest'}
+    });
   }
 }
