@@ -29,6 +29,8 @@ import {RouterModule} from "@angular/router";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 import { GitFollowerProfileComponent } from './git-follower-profile/git-follower-profile.component';
+import { ArchiveComponent } from './archive/archive.component';
+import { ArchiveDetailComponent } from './archive-detail/archive-detail.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { GitFollowerProfileComponent } from './git-follower-profile/git-follower
     NavbarComponent,
     NotFoundComponent,
     HomeComponent,
-    GitFollowerProfileComponent
+    GitFollowerProfileComponent,
+    ArchiveComponent,
+    ArchiveDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import { GitFollowerProfileComponent } from './git-follower-profile/git-follower
         component: HomeComponent
       },
       {
-        path: 'followers/:id/:username',
+        path: 'followers/:id/:username' +
+        '',
         component: GitFollowerProfileComponent
       },
       {
@@ -78,6 +83,14 @@ import { GitFollowerProfileComponent } from './git-follower-profile/git-follower
       {
         path: 'posts',
         component: PostComponent
+      },
+      {
+        path: 'archive',
+        component: ArchiveComponent
+      },
+      {
+        path: 'archive-detail/:year/:month',
+        component: ArchiveDetailComponent
       },
       {
         path: '**',
